@@ -14,7 +14,7 @@ from nose2.main import discover
 log = logging.getLogger(__name__)
 
 
-class TestRunner(simple.DjangoTestSuiteRunner):
+class TestRunner(DiscoverRunner):
 
     err_count = 0
     _hooks = ('startTestRun', 'reportFailure', 'reportError')
