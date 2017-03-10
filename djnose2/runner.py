@@ -3,7 +3,11 @@ import sys
 from contextlib import contextmanager
 import logging
 
-from django.test import simple
+try:
+    from django.test.runner import DiscoverRunner
+except ImportError:
+    from django.test import simple as DiscoverRunner
+
 from nose2.main import discover
 
 

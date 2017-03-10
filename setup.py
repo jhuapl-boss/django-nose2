@@ -1,5 +1,5 @@
 import os
-from setuptools import setup, find_packages # FIXME
+from setuptools import find_packages
 
 PARAMS = {}
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
@@ -12,6 +12,9 @@ CLASSIFIERS = [
     'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3.2',
+    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: Implementation :: CPython',
     'Programming Language :: Python :: Implementation :: PyPy',
     'Operating System :: OS Independent',
@@ -28,15 +31,15 @@ except ImportError:
     PARAMS['packages'] = 'djnose2'
 else:
     PARAMS['packages'] = find_packages()
-    PARAMS['install_requires'] = ['Django>=1.2,', 'nose2>=0.3']
+    PARAMS['install_requires'] = ['Django>=1.2', 'nose2>=0.3']
 
 
 
 setup(
     name='django-nose2',
-    author='Jason Pellerin',
-    author_email='jpellerin+nose@gmail.com',
-    version='0.1.1',
+    author='Jason Pellerin/JHUAPL',
+    author_email='iarpamicrons@jhuapl.edu',
+    version='0.1.2',
     url='https://github.com/jpellerin/django-nose2',
     description='Test runner for django that runs tests with nose2',
     long_description=README,
