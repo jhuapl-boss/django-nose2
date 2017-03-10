@@ -31,8 +31,6 @@ except ImportError:
     PARAMS['packages'] = 'djnose2'
 else:
     PARAMS['packages'] = find_packages()
-    PARAMS['install_requires'] = ['Django>=1.2', 'nose2>=0.3']
-
 
 
 setup(
