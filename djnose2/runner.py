@@ -25,10 +25,12 @@ class TestRunner(DiscoverRunner):
     def hooks(self):
         return [(hook, self) for hook in self._hooks]
 
+    # Must do override settings here for it to effect the class
     @override_settings(KVIO_SETTINGS=KVIO_SETTINGS)
     @override_settings(STATEIO_CONFIG=STATEIO_CONFIG)
     @override_settings(OBJECTIO_CONFIG=OBJECTIO_CONFIG)
     def run_tests(self, test_labels, extra_tests=None, **kwargs):
+        print("####RUN_TESTS")
         log.debug('Running tests with nose2')
         self.extra_tests = extra_tests
         with self.test_environment():
@@ -67,6 +69,7 @@ class TestRunner(DiscoverRunner):
 
     # plugin hooks the runner handles
     def startTestRun(self, event):
+        print("####START TEST RUN")
         if self.extra_tests is None:
             return
         for test in self.extra_tests:
