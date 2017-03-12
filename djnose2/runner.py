@@ -9,7 +9,7 @@ except ImportError:
     from django.test import simple as DiscoverRunner
 
 from nose2.main import discover
-
+from django.test.utils import override_settings
 
 log = logging.getLogger(__name__)
 
@@ -22,6 +22,9 @@ class TestRunner(DiscoverRunner):
     def hooks(self):
         return [(hook, self) for hook in self._hooks]
 
+    @override_settings(KVIO_SETTINGS={})
+    @override_settings(STATEIO_CONFIG={})
+    @override_settings(OBJECTIO_CONFIG={})
     def run_tests(self, test_labels, extra_tests=None, **kwargs):
         log.debug('Running tests with nose2')
         self.extra_tests = extra_tests
