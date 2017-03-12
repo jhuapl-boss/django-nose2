@@ -69,12 +69,13 @@ class TestRunner(DiscoverRunner):
 
     # plugin hooks the runner handles
     def startTestRun(self, event):
-        if self.extra_tests None:
-            for test in self.extra_tests:
-                event.suite.addTest(test)
+        if self.extra_tests is None:
+            return
+        for test in self.extra_tests:
+            event.suite.addTest(test)
 
-        print("decorating executor")
-        event.executeTests = override_settings(event.executeTests, OBJECTIO_CONFIG=get_test_configuration()[2])
+    def startTest(self, event):
+        test = override_settings(event.test, OBJECTIO_CONFIG=get_test_configuration()[2])
 
     def reportFailure(self, event):
         self.err_count += 1
