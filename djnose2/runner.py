@@ -10,8 +10,11 @@ except ImportError:
 
 from nose2.main import discover
 from django.test.utils import override_settings
+from spdb.spatialdb.test.setup import get_test_configuration
 
 log = logging.getLogger(__name__)
+
+KVIO_SETTINGS, STATEIO_CONFIG, OBJECTIO_CONFIG, _ = get_test_configuration()
 
 
 class TestRunner(DiscoverRunner):
@@ -22,9 +25,9 @@ class TestRunner(DiscoverRunner):
     def hooks(self):
         return [(hook, self) for hook in self._hooks]
 
-    @override_settings(KVIO_SETTINGS={})
-    @override_settings(STATEIO_CONFIG={})
-    @override_settings(OBJECTIO_CONFIG={})
+    @override_settings(KVIO_SETTINGS=KVIO_SETTINGS)
+    @override_settings(STATEIO_CONFIG=STATEIO_CONFIG)
+    @override_settings(OBJECTIO_CONFIG=OBJECTIO_CONFIG)
     def run_tests(self, test_labels, extra_tests=None, **kwargs):
         log.debug('Running tests with nose2')
         self.extra_tests = extra_tests
