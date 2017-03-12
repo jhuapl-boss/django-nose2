@@ -41,8 +41,9 @@ class TestRunner(DiscoverRunner):
         if '--' in sys.argv:
             argv.extend(sys.argv[sys.argv.index('--')+1:])
 
-        if test_labels:
-            argv.extend([t for t in test_labels if not t.startswith('-')])
+        # DMK - assuming all test discovery is defined in the nose2 config file
+        #if test_labels:
+        #    argv.extend([t for t in test_labels if not t.startswith('-')])
 
         return argv
 
