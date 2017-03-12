@@ -75,7 +75,8 @@ class TestRunner(DiscoverRunner):
             event.suite.addTest(test)
 
     def startTest(self, event):
-        test = override_settings(event.test, OBJECTIO_CONFIG=get_test_configuration()[2])
+        print("**** decorating test")
+        event.test = override_settings(event.test, OBJECTIO_CONFIG=get_test_configuration()[2])
 
     def reportFailure(self, event):
         self.err_count += 1
