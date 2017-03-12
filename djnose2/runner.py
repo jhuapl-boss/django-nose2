@@ -20,7 +20,7 @@ KVIO_SETTINGS, STATEIO_CONFIG, OBJECTIO_CONFIG, _ = get_test_configuration()
 class TestRunner(DiscoverRunner):
 
     err_count = 0
-    _hooks = ('startTestRun', 'reportFailure', 'reportError')
+    _hooks = ('startTestRun', 'reportFailure', 'reportError', 'startTest')
 
     def hooks(self):
         return [(hook, self) for hook in self._hooks]
