@@ -1,6 +1,6 @@
 #Django nose2 Custom Test Runner
 
-** NOTE: THIS TEST RUNNER HAS BEEN CUSTOMIZED TO WORK WITH THE BOSS AND IS NOT FOR GENERAL USE **
+*NOTE: THIS TEST RUNNER HAS BEEN CUSTOMIZED TO WORK WITH THE BOSS AND IS NOT FOR GENERAL USE*
 
 A test runner for django 1.2 or better that runs tests with nose2.
 
@@ -10,9 +10,9 @@ Django and nose dependencies have been removed from setup.py because they are ma
 
 In your settings.py, set:
 
-    ```
-    TEST_RUNNER="djnose2.TestRunner"
-    ```
+```
+TEST_RUNNER="djnose2.TestRunner"
+```
 
 Then ``manage.py test`` will run nose2's test runner.
 
@@ -26,7 +26,7 @@ Three nose2 configuration files have been created:
 ##Use
 
 Put any command-line nose2 arguments for the test runner after '--'. For
-example, to turn on verbose output::
+example, to turn on verbose output:
 
   manage.py test -- -v
   
