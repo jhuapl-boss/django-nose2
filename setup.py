@@ -4,7 +4,7 @@ from setuptools import find_packages
 PARAMS = {}
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 CLASSIFIERS = [
-    'Development Status :: 3 - Alpha',
+    'Development Status :: 4 - Beta',
     'Environment :: Console',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: BSD License',
@@ -35,9 +35,9 @@ else:
 
 setup(
     name='django-nose2',
-    author='Jason Pellerin/JHUAPL',
+    author='JHUAPL',
     author_email='iarpamicrons@jhuapl.edu',
-    version='0.1.2',
+    version='0.1.3',
     url='https://github.com/jpellerin/django-nose2',
     description='Test runner for django that runs tests with nose2',
     long_description=README,
