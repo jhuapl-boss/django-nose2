@@ -22,7 +22,7 @@ CLASSIFIERS = [
     'Topic :: Software Development :: Libraries :: Python Modules',
     'Topic :: Software Development :: Testing',
 ]
-KEYWORDS = ['unittest', 'testing', 'tests', 'django']
+KEYWORDS = ['unittest', 'testing', 'tests', 'django', 'nose2']
 
 try:
     from setuptools import setup
@@ -38,7 +38,7 @@ setup(
     author='JHUAPL',
     author_email='iarpamicrons@jhuapl.edu',
     version='0.1.3',
-    url='https://github.com/jpellerin/django-nose2',
+    url='https://github.com/jhuapl-boss/django-nose2',
     description='Test runner for django that runs tests with nose2',
     long_description=README,
     **PARAMS
