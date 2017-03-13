@@ -2,7 +2,7 @@ import os
 from setuptools import find_packages
 
 PARAMS = {}
-README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+README = open(os.path.join(os.path.dirname(__file__), 'README.md')).read()
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
     'Environment :: Console',
