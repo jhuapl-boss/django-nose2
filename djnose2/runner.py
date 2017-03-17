@@ -10,11 +10,22 @@ except ImportError:
 
 from nose2.main import discover
 from django.test.utils import override_settings
-from spdb.spatialdb.test.setup import get_test_configuration
+from spdb.spatialdb.test.setup import get_test_configuration, get_account_id
 
 log = logging.getLogger(__name__)
 
-KVIO_SETTINGS, STATEIO_CONFIG, OBJECTIO_CONFIG, _ = get_test_configuration()
+import os
+# This environment variable is set by django.boss.settings.jenkins.py.
+unit_tests = os.environ.get('USING_DJANGO_TESTRUNNER')
+
+if unit_tests:
+    # Replace get_account_id() with a fake so we don't try to use AWS's sts.
+    from unittest.mock import patch
+    with patch('spdb.spatialdb.test.setup.get_account_id', autospec=True) as fake_get_acct_id:
+        fake_get_acct_id.return_value = '1111111111'
+        KVIO_SETTINGS, STATEIO_CONFIG, OBJECTIO_CONFIG, _ = get_test_configuration()
+else:
+    KVIO_SETTINGS, STATEIO_CONFIG, OBJECTIO_CONFIG, _ = get_test_configuration()
 
 
 class TestRunner(DiscoverRunner):
